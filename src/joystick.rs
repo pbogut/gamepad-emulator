@@ -1,10 +1,9 @@
 mod axis;
 mod button;
-mod error;
 
+pub use crate::input::Error;
 pub use axis::Axis;
 pub use button::Button;
-pub use error::Error;
 
 use input_linux::sys;
 
