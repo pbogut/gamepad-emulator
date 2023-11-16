@@ -2,11 +2,6 @@ use std::slice;
 
 #[derive(Debug)]
 pub enum Button {
-    LeftNorth,
-    LeftSouth,
-    LeftEast,
-    LeftWest,
-
     LeftSpecial,
 
     RightNorth,
@@ -28,11 +23,6 @@ impl Button {
         use Button::*;
 
         match &self {
-            LeftNorth => ButtonDpadUp,
-            LeftSouth => ButtonDpadDown,
-            LeftEast => ButtonDpadLeft,
-            LeftWest => ButtonDpadRight,
-
             LeftSpecial => ButtonStart,
 
             RightNorth => ButtonNorth,
@@ -52,15 +42,11 @@ impl Button {
     pub(super) fn all_buttons() -> slice::Iter<'static, Self> {
         use Button::*;
         [
-            LeftNorth,
-            LeftSouth,
-            LeftEast,
-            LeftWest,
-            LeftSpecial,
-            RightNorth,
             RightSouth,
             RightEast,
             RightWest,
+            RightNorth,
+            LeftSpecial,
             RightSpecial,
             L1,
             R1,

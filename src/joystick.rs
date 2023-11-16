@@ -92,7 +92,6 @@ fn create_joystick_device() -> Result<input_linux::UInputHandle<fs::File>, Error
 
     device.set_evbit(input_linux::EventKind::Absolute)?;
     device.set_evbit(input_linux::EventKind::Key)?;
-    device.set_keybit(input_linux::Key::ButtonTrigger)?; // informs linux that this is a joystick
 
     for button in Button::all_buttons() {
         device.set_keybit(button.to_evdev_button())?;
@@ -100,7 +99,7 @@ fn create_joystick_device() -> Result<input_linux::UInputHandle<fs::File>, Error
 
     device.create(
         &input_id,
-        b"arduino-virtual-joystick",
+        b"Virtual Gamepad",
         0,
         &Axis::all_axes()
             .map(|axis| input_linux::AbsoluteInfoSetup {
