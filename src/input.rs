@@ -1,4 +1,5 @@
 mod error;
+mod mouse;
 
 pub use error::Error;
 
